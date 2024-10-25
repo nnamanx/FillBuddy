@@ -1,9 +1,5 @@
 :root {
     --main-color: #0077b6;
-    --main-color-shadow: #026397;
-    --main-dark-color: #03045e;
-    --grey-color: #393939;
-    --white-color: #fff;
     scroll-behavior: smooth;
   }
   
@@ -15,3 +11,22 @@
     padding: 0;
 
   }
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    width: 300px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+#data-fields {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    margin: 5px 0;
+}
