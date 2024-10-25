@@ -1,6 +1,17 @@
-/* General CSS */
-
-*{
-    padding: 0;
+:root {
+    --main-color: #0077b6;
+    --main-color-shadow: #026397;
+    --main-dark-color: #03045e;
+    --grey-color: #393939;
+    --white-color: #fff;
+    scroll-behavior: smooth;
+  }
+  
+  /*! General CSS*/
+  * {
+    box-sizing: border-box;
+    outline: none;
     margin: 0;
-}
+    padding: 0;
+
+  }
