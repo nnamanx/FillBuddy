@@ -1,24 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS link -->
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css" />
     <title>FillBuddy</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>FillBuddy</h1>
-    
-    <div class="form">
-        <label for="firstname">First Name</label>
-        <input type="text" id="firstname" required>
 
+    <h3>Edit your information to fill automatically</h3>
+
+    <div class="form-container">
+      <section class="basic-requirements">
+
+        <section class="name-surname">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" required />
+        </section>
+       
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" required>
+        <input type="text" id="lastname" required />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          data-type="general"
+          id="email"
+          placeholder="Email"
+          required
+        />
+
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          data-type="general"
+          id="phone"
+          placeholder="Phone"
+          required
+        />
+
+        <label for="address">Address</label>
+        <input
+          type="text"
+          data-type="general"
+          id="address"
+          placeholder="Address"
+          required
+        />
+
+        <label for="city">City</label>
+        <input
+          type="text"
+          data-type="general"
+          id="city"
+          placeholder="City"
+          required
+        />
+
+        <label for="zip">Zip</label>
+        <input
+          type="text"
+          data-type="general"
+          id="zip"
+          placeholder="Zip"
+          required
+        />
+
+        <label for="linkedin">LinkedIn</label>
+        <input
+          type="text"
+          data-type="general"
+          id="linkedin"
+          placeholder="LinkedIn"
+        />
+
+        <label for="github">GitHub</label>
+        <input
+          type="text"
+          data-type="general"
+          id="github"
+          placeholder="GitHub"
+        />
+
+        <label for="website">Website</label>
+        <input
+          type="text"
+          data-type="general"
+          id="website"
+          placeholder="Website"
+        />
+      </section>
     </div>
 
     <!-- Link to JS -->
     <script src="./js/popup.js"></script>
-</body>
+  </body>
 </html>
