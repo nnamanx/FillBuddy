@@ -1,7 +1,7 @@
 
-# FillBuddy: 
+# FillBuddy
 
-QuickApply is a Chrome extension designed to simplify the job application process by acting as an intelligent auto form filler. This extension extracts relevant information from the user's LinkedIn profile, allowing customization and efficient form filling for job applications or other forms. QuickApply ensures that users can control, modify, and manage their profile information, making applications smoother and faster.
+FillBuddy is a Chrome extension designed to simplify the job application process by acting as an intelligent auto form filler. This extension extracts relevant information from the user's LinkedIn profile, allowing customization and efficient form filling for job applications or other forms. FillBuddy ensures that users can control, modify, and manage their profile information, making applications smoother and faster.
 
 
 ## Features
