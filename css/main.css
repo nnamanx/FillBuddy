@@ -1,21 +1,48 @@
 :root {
-    --main-color: #0077b6;
-    scroll-behavior: smooth;
-  }
-  
-  /*! General CSS*/
-  * {
-    box-sizing: border-box;
-    outline: none;
-    margin: 0;
-    padding: 0;
-
-  }
-
-body {
-    font-family: Arial, sans-serif;
+  --main-color: #0077b6;
+  scroll-behavior: smooth;
 }
 
+/*! General CSS*/
+* {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* 
 input {
     display: block;
+} */
+
+.form-container {
+  border: 1px solid red;
+  display: flex;
+  width: 80%;
+  margin: 2em auto;
+  flex-direction: column;
+}
+
+.name-surname {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  border: 1px solid black;
+}
+
+.basic-requirements {
+  border: 1px solid green;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.basic-requirements > * {
+  flex: 1 1 calc(20% - 10px);
+  max-width: calc(20% - 10px);
 }

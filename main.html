@@ -13,16 +13,20 @@
     <h3>Edit your information to fill automatically</h3>
 
     <div class="form-container">
-      <section class="basic-requirements">
 
+        <!-- Name-Surname section -->
         <section class="name-surname">
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" required />
-        </section>
-       
-        <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" required />
+            <div>
+              <label for="firstname">First Name</label>
+              <input type="text" id="firstname" required />
+            </div>
 
+            <div>
+              <label for="lastname">Last Name</label>
+              <input type="text" id="lastname" required />
+            </div>
+        </section>
+       <section class="basic-requirements">
         <label for="email">Email</label>
         <input
           type="email"
@@ -91,7 +95,8 @@
           id="website"
           placeholder="Website"
         />
-      </section>
+       </section>
+     
     </div>
 
     <!-- Link to JS -->
