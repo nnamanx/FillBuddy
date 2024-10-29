@@ -15,11 +15,25 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* 
-input {
-    display: block;
-} */
+a{
+  text-decoration: none;
+}
 
+/* Navbar */
+.nav{
+  height: 15%;
+  border: 1px solid rebeccapurple;
+  margin: 1em 0;
+}
+
+.nav ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  /* flex-direction: row; */
+}
+
+/* Form */
 .form-container {
   border: 1px solid red;
   display: flex;
