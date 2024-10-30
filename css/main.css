@@ -3,6 +3,7 @@
   scroll-behavior: smooth;
 }
 
+
 /*! General CSS*/
 * {
   box-sizing: border-box;
@@ -17,6 +18,11 @@ body {
 
 a{
   text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  font-size: 1.05em;
 }
 
 /* Navbar */
@@ -30,7 +36,12 @@ a{
   display: flex;
   justify-content: space-around;
   list-style: none;
-  /* flex-direction: row; */
+  align-items: center;
+}
+
+.nav ul li:first-child{
+  font-family: "Playwrite GB S", cursive;
+  font-weight: 700;
 }
 
 /* Form */
