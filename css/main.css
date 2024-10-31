@@ -1,5 +1,5 @@
 :root {
-  --main-color: #0077b6;
+  --main-color: #0077b6;  /* rearrange the color palatte */
   scroll-behavior: smooth;
 }
 
@@ -41,7 +41,11 @@ a:hover{
 
 .nav ul li:first-child{
   font-family: "Playwrite GB S", cursive;
-  font-weight: 700;
+  font-weight: bold; /* not working */
+}
+
+.description{
+  text-align: center;
 }
 
 /* Form */
@@ -65,9 +69,19 @@ a:hover{
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  margin: 1em 0;
 }
 
 .basic-requirements > * {
   flex: 1 1 calc(20% - 10px);
   max-width: calc(20% - 10px);
 }
+
+.files-section{
+  border: 1px solid greenyellow;
+}
+
+.files-header{
+
+}
+

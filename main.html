@@ -21,8 +21,7 @@
       </ul>
     </div>
     
-
-    <h3>Edit your information to fill automatically</h3>
+    <h3 class="description">Edit your information to fill automatically</h3>
 
     <div class="form-container">
 
@@ -38,6 +37,7 @@
               <input type="text" id="lastname" required />
             </div>
         </section>
+
        <section class="basic-requirements">
         <label for="email">Email</label>
         <input
@@ -107,6 +107,21 @@
           id="website"
           placeholder="Website"
         />
+       </section>
+
+       <hr>
+
+       <!-- Files section -->
+       <section class="files-section">
+
+        <h2 class="files-header">Files</h2>
+
+        <label for="inputresume">Resume</label>
+        <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputresume">
+
+        <label for="inputcoverletter">Cover Letter</label>
+        <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputcoverletter">
+
        </section>
      
     </div>
