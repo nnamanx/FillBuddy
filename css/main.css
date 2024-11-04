@@ -1,87 +1,122 @@
 :root {
-  --main-color: #0077b6;  /* rearrange the color palatte */
+  --main-color: #0077b6;
+  --secondary-color: #90e0ef;
+  --text-color: #03045e;
+  --border-color: #caf0f8;
+  --background-color: #f0f8ff;
   scroll-behavior: smooth;
-}
-
-
-/*! General CSS*/
-* {
-  box-sizing: border-box;
-  outline: none;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
 }
 
-a{
+a {
   text-decoration: none;
-  color: black;
+  color: var(--main-color);
+  transition: color 0.3s ease;
 }
 
-a:hover{
+a:hover {
+  color: var(--text-color);
   font-size: 1.05em;
 }
 
-/* Navbar */
-.nav{
-  height: 15%;
-  border: 1px solid rebeccapurple;
-  margin: 1em 0;
+.nav {
+  background-color: var(--secondary-color);
+  padding: 1em 0;
+  border-bottom: 2px solid var(--main-color);
 }
 
-.nav ul{
+.nav ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
   align-items: center;
 }
 
-.nav ul li:first-child{
+.nav ul li:first-child {
   font-family: "Playwrite GB S", cursive;
-  font-weight: bold; /* not working */
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
-.description{
+.description {
   text-align: center;
+  margin: 1em 0;
+  font-size: 1.2em;
+  color: var(--main-color);
 }
 
-/* Form */
 .form-container {
-  border: 1px solid red;
-  display: flex;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 2em;
   width: 80%;
   margin: 2em auto;
-  flex-direction: column;
 }
 
 .name-surname {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1em;
-  border: 1px solid black;
+  gap: 1em;
+}
+
+.name-surname div, .basic-requirements > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+  padding: 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus {
+  border-color: var(--main-color);
 }
 
 .basic-requirements {
-  border: 1px solid green;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+}
+
+.files-section {
+  margin-top: 1.5em;
+}
+
+.files-header {
+  font-size: 1.3em;
+  color: var(--main-color);
+  margin-bottom: 1em;
+}
+
+input[type="file"] {
+  border: none;
+  color: var(--text-color);
+}
+
+hr {
+  border: 1px solid var(--border-color);
   margin: 1em 0;
 }
-
-.basic-requirements > * {
-  flex: 1 1 calc(20% - 10px);
-  max-width: calc(20% - 10px);
-}
-
-.files-section{
-  border: 1px solid greenyellow;
-}
-
-.files-header{
-
-}
-
