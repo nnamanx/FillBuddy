@@ -28,7 +28,7 @@ a:hover {
 
 .nav {
   background-color: var(--secondary-color);
-  padding: 1em 0;
+  padding: .1em 0;
   border-bottom: 2px solid var(--main-color);
 }
 
@@ -37,12 +37,26 @@ a:hover {
   justify-content: space-around;
   list-style: none;
   align-items: center;
+  /* border: 1px solid rebeccapurple; */
 }
 
 .nav ul li:first-child {
   font-family: "Playwrite GB S", cursive;
   font-weight: bold;
   font-size: 1.5em;
+}
+
+.nav-links{
+  /* border: 1px solid red; */
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.nav-links a{
+  margin-right: 1em;
+  /* border: 1px solid rebeccapurple; */
 }
 
 .description {
