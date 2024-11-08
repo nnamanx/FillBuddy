@@ -37,7 +37,6 @@ a:hover {
   justify-content: space-around;
   list-style: none;
   align-items: center;
-  /* border: 1px solid rebeccapurple; */
 }
 
 .nav ul li:first-child {
@@ -47,7 +46,6 @@ a:hover {
 }
 
 .nav-links{
-  /* border: 1px solid red; */
   width: 50%;
   display: flex;
   justify-content: flex-end;
@@ -56,7 +54,6 @@ a:hover {
 
 .nav-links a{
   margin-right: 1em;
-  /* border: 1px solid rebeccapurple; */
 }
 
 .description {
