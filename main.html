@@ -1,137 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>FillBuddy</title>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li class="logo"><a href="#">FillBuddy</a></li>
+      <li class="nav-links">
+        <a href="#">How it works</a>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
+  
+  <h3 class="description">Edit your information to fill automatically</h3>
 
-    
-    <!-- CSS link -->
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>FillBuddy</title>
-  </head>
-  <body>
-    <div class="nav">
-      <ul>
-        <li class="logo"><a href="#">FillBuddy</a></li>
-        <li class="nav-links">
-          <a href="#">How it works</a>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-    
-    <h3 class="description">Edit your information to fill automatically</h3>
+  <div class="form-container">
+    <!-- Name-Surname section -->
+    <section class="name-surname">
+      <div>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" required />
+      </div>
 
-    <div class="form-container">
+      <div>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" required />
+      </div>
+    </section>
 
-        <!-- Name-Surname section -->
-        <section class="name-surname">
-            <div>
-              <label for="firstname">First Name</label>
-              <input type="text" id="firstname" required />
-            </div>
+    <section class="basic-requirements">
+      <label for="email">Email</label>
+      <input type="email" data-type="general" id="email" placeholder="Email" required />
+      
+      <label for="phone">Phone</label>
+      <input type="text" data-type="general" id="phone" placeholder="Phone" required />
 
-            <div>
-              <label for="lastname">Last Name</label>
-              <input type="text" id="lastname" required />
-            </div>
-        </section>
+      <label for="address">Address</label>
+      <input type="text" data-type="general" id="address" placeholder="Address" required />
 
-       <section class="basic-requirements">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          data-type="general"
-          id="email"
-          placeholder="Email"
-          required
-        />
+      <label for="city">City</label>
+      <input type="text" data-type="general" id="city" placeholder="City" required />
 
-        <label for="phone">Phone</label>
-        <input
-          type="text"
-          data-type="general"
-          id="phone"
-          placeholder="Phone"
-          required
-        />
+      <label for="zip">Zip</label>
+      <input type="text" data-type="general" id="zip" placeholder="Zip" required />
 
-        <label for="address">Address</label>
-        <input
-          type="text"
-          data-type="general"
-          id="address"
-          placeholder="Address"
-          required
-        />
+      <label for="linkedin">LinkedIn</label>
+      <input type="text" data-type="general" id="linkedin" placeholder="LinkedIn" />
 
-        <label for="city">City</label>
-        <input
-          type="text"
-          data-type="general"
-          id="city"
-          placeholder="City"
-          required
-        />
+      <label for="github">GitHub</label>
+      <input type="text" data-type="general" id="github" placeholder="GitHub" />
 
-        <label for="zip">Zip</label>
-        <input
-          type="text"
-          data-type="general"
-          id="zip"
-          placeholder="Zip"
-          required
-        />
+      <label for="website">Website</label>
+      <input type="text" data-type="general" id="website" placeholder="Website" />
+    </section>
 
-        <label for="linkedin">LinkedIn</label>
-        <input
-          type="text"
-          data-type="general"
-          id="linkedin"
-          placeholder="LinkedIn"
-        />
+    <hr>
 
-        <label for="github">GitHub</label>
-        <input
-          type="text"
-          data-type="general"
-          id="github"
-          placeholder="GitHub"
-        />
+    <!-- Files section -->
+    <section class="files-section">
+      <h2 class="files-header">Files</h2>
 
-        <label for="website">Website</label>
-        <input
-          type="text"
-          data-type="general"
-          id="website"
-          placeholder="Website"
-        />
-       </section>
+      <label for="inputresume">Resume</label>
+      <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputresume">
 
-       <hr>
+      <label for="inputcoverletter">Cover Letter</label>
+      <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputcoverletter">
+    </section>
+  </div>
 
-       <!-- Files section -->
-       <section class="files-section">
-
-        <h2 class="files-header">Files</h2>
-
-        <label for="inputresume">Resume</label>
-        <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputresume">
-
-        <label for="inputcoverletter">Cover Letter</label>
-        <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputcoverletter">
-
-       </section>
-     
-    </div>
-
-    <!-- Link to JS -->
-    <script src="./js/linkedin.js"></script>
-    <script src="./js/custom-fields.js"></script>
-    <script src="./js/local-storage.js"></script>
-  </body>
+  <!-- Link to JavaScript files in the correct order -->
+  <script src="./js/local-storage.js"></script>
+  <script src="./js/linkedin.js"></script>
+  <script src="./js/custom-fields.js"></script>
+</body>
 </html>

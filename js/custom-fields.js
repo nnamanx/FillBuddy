@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+    
     const fields = ["linkedin", "github", "website"];
   
     fields.forEach(fieldId => {
