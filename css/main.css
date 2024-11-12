@@ -26,6 +26,7 @@ a:hover {
   font-size: 1.05em;
 }
 
+/* Navbar */
 .nav {
   background-color: var(--secondary-color);
   padding: .1em 0;
@@ -55,6 +56,64 @@ a:hover {
 .nav-links a{
   margin-right: 1em;
 }
+/* end of navbar */
+
+/* profile switching */
+
+/* Profile Manager Styling */
+.profile-manager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  padding: 0.5em;
+  border-radius: 8px;
+  margin: 1em auto;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-manager label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+#profileSelect {
+  padding: 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: white;
+  color: var(--text-color);
+  font-size: 1em;
+  margin-right: 0.5em;
+  width: 150px;
+}
+
+#newProfileName {
+  padding: 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 150px;
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+#createProfileButton {
+  padding: 0.5em 1em;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#createProfileButton:hover {
+  background-color: var(--text-color);
+}
+/* end of profile switcing */
 
 .description {
   text-align: center;
