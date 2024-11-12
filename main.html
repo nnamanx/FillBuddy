@@ -1,85 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css" />
-  <title>FillBuddy</title>
-</head>
-<body>
-  <div class="nav">
-    <ul>
-      <li class="logo"><a href="#">FillBuddy</a></li>
-      <li class="nav-links">
-        <a href="#">How it works</a>
-        <a href="#">Contact</a>
-      </li>
-    </ul>
-  </div>
-  
-  <h3 class="description">Edit your information to fill automatically</h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>FillBuddy</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="nav">
+      <ul>
+        <li class="logo"><a href="#">FillBuddy</a></li>
+        <li class="nav-links">
+          <a href="#">How it works</a>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <!-- end of navbar -->
 
-  <div class="form-container">
-    <!-- Name-Surname section -->
-    <section class="name-surname">
-      <div>
-        <label for="firstname">First Name</label>
-        <input type="text" id="firstname" required />
-      </div>
+    <!-- Profile switching -->
+    <div class="profile-manager">
+      <label for="profileSelect">Select Profile:</label>
+      <select id="profileSelect"></select>
+      <input type="text" id="newProfileName" placeholder="New profile name" />
+      <button id="createProfileButton">Create Profile</button>
+    </div>
+    
 
-      <div>
-        <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" required />
-      </div>
-    </section>
+    <h3 class="description">Edit your information to fill automatically</h3>
 
-    <section class="basic-requirements">
-      <label for="email">Email</label>
-      <input type="email" data-type="general" id="email" placeholder="Email" required />
-      
-      <label for="phone">Phone</label>
-      <input type="text" data-type="general" id="phone" placeholder="Phone" required />
+    <div class="form-container">
+      <!-- Name-Surname section -->
+      <section class="name-surname">
+        <div>
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" required />
+        </div>
 
-      <label for="address">Address</label>
-      <input type="text" data-type="general" id="address" placeholder="Address" required />
+        <div>
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" required />
+        </div>
+      </section>
 
-      <label for="city">City</label>
-      <input type="text" data-type="general" id="city" placeholder="City" required />
+      <section class="basic-requirements">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          data-type="general"
+          id="email"
+          placeholder="Email"
+          required
+        />
 
-      <label for="zip">Zip</label>
-      <input type="text" data-type="general" id="zip" placeholder="Zip" required />
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          data-type="general"
+          id="phone"
+          placeholder="Phone"
+          required
+        />
 
-      <label for="linkedin">LinkedIn</label>
-      <input type="text" data-type="general" id="linkedin" placeholder="LinkedIn" />
+        <label for="address">Address</label>
+        <input
+          type="text"
+          data-type="general"
+          id="address"
+          placeholder="Address"
+          required
+        />
 
-      <label for="github">GitHub</label>
-      <input type="text" data-type="general" id="github" placeholder="GitHub" />
+        <label for="city">City</label>
+        <input
+          type="text"
+          data-type="general"
+          id="city"
+          placeholder="City"
+          required
+        />
 
-      <label for="website">Website</label>
-      <input type="text" data-type="general" id="website" placeholder="Website" />
-    </section>
+        <label for="zip">Zip</label>
+        <input
+          type="text"
+          data-type="general"
+          id="zip"
+          placeholder="Zip"
+          required
+        />
 
-    <hr>
+        <label for="linkedin">LinkedIn</label>
+        <input
+          type="text"
+          data-type="general"
+          id="linkedin"
+          placeholder="LinkedIn"
+        />
 
-    <!-- Files section -->
-    <section class="files-section">
-      <h2 class="files-header">Files</h2>
+        <label for="github">GitHub</label>
+        <input
+          type="text"
+          data-type="general"
+          id="github"
+          placeholder="GitHub"
+        />
 
-      <label for="inputresume">Resume</label>
-      <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputresume">
+        <label for="website">Website</label>
+        <input
+          type="text"
+          data-type="general"
+          id="website"
+          placeholder="Website"
+        />
+      </section>
 
-      <label for="inputcoverletter">Cover Letter</label>
-      <input type="file" accept=".pdf" data-type="resume" class="form-control-file" id="inputcoverletter">
-    </section>
-  </div>
+      <hr />
 
-  <!-- Link to JavaScript files in the correct order -->
-  <script src="./js/local-storage.js"></script>
-  <script src="./js/linkedin.js"></script>
-  <script src="./js/custom-fields.js"></script>
-  <script src="./js/switch-profiles.js"></script>
-</body>
+      <!-- Files section -->
+      <section class="files-section">
+        <h2 class="files-header">Files</h2>
+
+        <label for="inputresume">Resume</label>
+        <input
+          type="file"
+          accept=".pdf"
+          data-type="resume"
+          class="form-control-file"
+          id="inputresume"
+        />
+
+        <label for="inputcoverletter">Cover Letter</label>
+        <input
+          type="file"
+          accept=".pdf"
+          data-type="resume"
+          class="form-control-file"
+          id="inputcoverletter"
+        />
+      </section>
+    </div>
+
+    <!-- Link to JavaScript files in the correct order -->
+    <script src="./js/local-storage.js"></script>
+    <script src="./js/linkedin.js"></script>
+    <script src="./js/custom-fields.js"></script>
+    <script src="./js/switch-profile.js"></script>
+  </body>
 </html>
