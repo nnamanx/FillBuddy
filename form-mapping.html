@@ -1,3 +1,5 @@
+<!-- Gozal -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +20,7 @@
             <li class="nav-links">
                 <a href="main.html">Dashboard</a>
                 <a href="cover-letter.html">Cover Letter Generator</a>
-                <a href="form-mapping.html">Form Mapping</a>
+                <a href="form-mapping.html" id="formMappingLink">Form Mapping</a>
                 <a href="#">How it works</a>
                 <a href="#">Contact</a>
             </li>
@@ -31,11 +33,85 @@
     <button id="addMappingButton" class="add-mapping-button">Add Mapping</button>
     <button id="saveMappingButton" class="save-mapping-button">Save Mappings</button>
 
+    <div class="profile-manager">
+        <label for="profileSelect">Select Profile:</label>
+        <select id="profileSelect"></select>
+    </div>
+
     <!-- Link to JavaScript files in the correct order -->
     <script src="./js/local-storage.js"></script>
     <script src="./js/linkedin.js"></script>
     <script src="./js/custom-fields.js"></script>
     <script src="./js/switch-profile.js"></script>
     <script src="./js/map-fields.js"></script>
+    <script src="./js/store-mapping.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formMappingLink = document.getElementById('formMappingLink');
+            if (formMappingLink) {
+                formMappingLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = 'form-mapping.html';
+                });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addMappingButton = document.getElementById('addMappingButton');
+            const saveMappingButton = document.getElementById('saveMappingButton');
+            const mappingContainer = document.getElementById('mappingContainer');
+
+            if (addMappingButton && saveMappingButton) {
+                // Attach event listeners if the buttons are present
+                addMappingButton.addEventListener('click', () => {
+                    console.log('Add Mapping button clicked');
+                    // Add a new row for mapping
+                    const row = document.createElement('div');
+                    row.classList.add('mapping-row');
+
+                    const linkedInFieldInput = document.createElement('input');
+                    linkedInFieldInput.type = 'text';
+                    linkedInFieldInput.placeholder = 'LinkedIn Field';
+                    linkedInFieldInput.classList.add('linkedin-field');
+
+                    const formFieldInput = document.createElement('input');
+                    formFieldInput.type = 'text';
+                    formFieldInput.placeholder = 'Form Field';
+                    formFieldInput.classList.add('form-field');
+
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.classList.add('remove-button');
+                    removeButton.addEventListener('click', () => {
+                        row.remove();
+                    });
+
+                    row.appendChild(linkedInFieldInput);
+                    row.appendChild(formFieldInput);
+                    row.appendChild(removeButton);
+                    mappingContainer.appendChild(row);
+                });
+
+                saveMappingButton.addEventListener('click', () => {
+                    console.log('Save Mappings button clicked');
+                    // Save the mappings to local storage
+                    let mappings = {};
+                    const rows = document.querySelectorAll('.mapping-row');
+                    rows.forEach(row => {
+                        const linkedInField = row.querySelector('.linkedin-field').value;
+                        const formField = row.querySelector('.form-field').value;
+                        if (linkedInField && formField) {
+                            mappings[linkedInField] = formField;
+                        }
+                    });
+                    localStorage.setItem('formFieldMappings', JSON.stringify(mappings));
+                    alert('Mappings saved successfully!');
+                });
+            } else {
+                console.error('Mapping buttons not found in the DOM');
+            }
+        });
+    </script>
 </body>
 </html>
