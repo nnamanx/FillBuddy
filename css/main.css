@@ -1,192 +1,80 @@
-:root {
-  --main-color: #0077b6;
-  --secondary-color: #90e0ef;
-  --text-color: #03045e;
-  --border-color: #caf0f8;
-  --background-color: #f0f8ff;
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
   margin: 0;
   padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
 }
 
-a {
-  text-decoration: none;
-  color: var(--main-color);
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--text-color);
-  font-size: 1.05em;
-}
-
-/* Navbar */
-.nav {
-  background-color: var(--secondary-color);
-  padding: .1em 0;
-  border-bottom: 2px solid var(--main-color);
-}
-
-.nav ul {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-  align-items: center;
-}
-
-.nav ul li:first-child {
-  font-family: "Playwrite GB S", cursive;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-.nav-links{
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-
-.nav-links a{
-  margin-right: 1em;
-}
-/* end of navbar */
-
-/* profile switching */
-
-/* Profile Manager Styling */
-.profile-manager {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--secondary-color);
-  padding: 0.5em;
-  border-radius: 8px;
-  margin: 1em auto;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-manager label {
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-#profileSelect {
-  padding: 0.5em;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  background-color: white;
-  color: var(--text-color);
-  font-size: 1em;
-  margin-right: 0.5em;
-  width: 150px;
-}
-
-#newProfileName {
-  padding: 0.5em;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  width: 150px;
-  font-size: 1em;
-  margin-right: 0.5em;
-}
-
-#createProfileButton {
-  padding: 0.5em 1em;
-  background-color: var(--main-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#createProfileButton:hover {
-  background-color: var(--text-color);
-}
-/* end of profile switcing */
-
-.description {
+header, footer {
   text-align: center;
-  margin: 1em 0;
-  font-size: 1.2em;
-  color: var(--main-color);
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
 }
 
-.form-container {
-  background-color: white;
-  border: 1px solid var(--border-color);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 2em;
-  width: 80%;
-  margin: 2em auto;
-}
-
-.name-surname {
+nav ul {
+  list-style-type: none;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1em;
-  gap: 1em;
+  justify-content: center;
+  background-color: #007bff;
+  margin: 0;
 }
 
-.name-surname div, .basic-requirements > * {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+nav ul li {
+  margin: 0 1rem;
 }
 
-label {
+nav ul li a {
+  text-decoration: none;
+  color: white;
   font-weight: bold;
-  margin-bottom: 0.3em;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="file"] {
-  padding: 0.5em;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  transition: border-color 0.3s;
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="file"]:focus {
-  border-color: var(--main-color);
+main {
+  padding: 1rem;
 }
 
-.basic-requirements {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
+section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.files-section {
-  margin-top: 1.5em;
+h1, h2 {
+  color: #007bff;
 }
 
-.files-header {
-  font-size: 1.3em;
-  color: var(--main-color);
-  margin-bottom: 1em;
-}
-
-input[type="file"] {
+button {
+  padding: 0.5rem 1rem;
   border: none;
-  color: var(--text-color);
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
 }
 
-hr {
-  border: 1px solid var(--border-color);
-  margin: 1em 0;
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
 }
