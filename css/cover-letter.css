@@ -1,0 +1,52 @@
+/* Turkana */
+
+.cover-letter-generator {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5em;
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.job-select {
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 1em;
+    font-size: 1em;
+}
+
+.generate-button {
+    padding: 0.7em 1.5em;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+    background-color: var(--text-color);
+}
+
+.cover-letter-container {
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2em;
+    width: 80%;
+    margin: 2em auto;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.cover-letter {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
