@@ -1,0 +1,56 @@
+<!-- Turkana -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/cover-letter.css">
+    <title>Cover Letter Generator</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="nav">
+        <ul>
+            <li class="logo"><a href="#">FillBuddy</a></li>
+            <li class="nav-links">
+                <a href="main.html">Dashboard</a>
+                <a href="cover_letter.html">Cover Letter Generator</a>
+                <a href="#">How it works</a>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+
+    <h3 class="description">Cover Letter Generator</h3>
+
+    <!-- Cover Letter Generator UI -->
+    <div class="cover-letter-generator form-container">
+        <label for="jobSelect">Select Job Application:</label>
+        <select id="jobSelect" class="job-select">
+            <option value="">Select a job application</option>
+            <option value="1">Software Developer at XYZ Corp</option>
+            <option value="2">Data Analyst at ABC Inc</option>
+        </select>
+        <button id="generateCoverLetterButton" class="generate-button">Generate Cover Letter</button>
+    </div>
+
+    <div id="coverLetterContainer" class="cover-letter-container">
+        <!-- Generated cover letter will be displayed here -->
+    </div>
+
+    <!-- Link to JavaScript files in the correct order -->
+    <script src="./js/local-storage.js"></script>
+    <script src="./js/linkedin.js"></script>
+    <script src="./js/custom-fields.js"></script>
+    <script src="./js/switch-profile.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script src="./js/update-status.js"></script>
+    <script src="./js/cover-letter.js"></script>
+</body>
+</html>
