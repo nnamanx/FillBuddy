@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/cover-letter.css">
+    <title>FillBuddy Dashboard</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="nav">
+        <ul>
+            <li class="logo"><a href="#">FillBuddy</a></li>
+            <li class="nav-links">
+                <a href="main.html">Dashboard</a>
+                <a href="cover-letter.html">Cover Letter Generator</a>
+                <a href="form-mapping.html">Form Mapping</a>
+                <a href="#">How it works</a>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- end of navbar -->
+
+    <h3>Form Field Mapping Interface</h3>
+    <div id="mappingContainer" class="mapping-container"></div>
+    <button id="addMappingButton" class="add-mapping-button">Add Mapping</button>
+    <button id="saveMappingButton" class="save-mapping-button">Save Mappings</button>
+
+    <!-- Link to JavaScript files in the correct order -->
+    <script src="./js/local-storage.js"></script>
+    <script src="./js/linkedin.js"></script>
+    <script src="./js/custom-fields.js"></script>
+    <script src="./js/switch-profile.js"></script>
+    <script src="./js/map-fields.js"></script>
+</body>
+</html>
