@@ -1,21 +1,21 @@
-
-chrome.runtime.onInstalled.addListener(() => {
-    console.log('FillBuddy extension installed.');
-
-    chrome.action.onClicked.addListener((tab) => {
-        chrome.tabs.create({ url: 'main.html' });
-    });
-
-    chrome.storage.local.set({ installed: true }, () => {
-        console.log('Extension installation status saved.');
+chrome.action.onClicked.addListener((tab) => {
+    chrome.scripting.executeScript({
+        target: {tabId: tab.id},
+        function: main,
+        args: []
     });
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.action === 'getProfileData') {
-        chrome.storage.local.get(['profileData'], (result) => {
-            sendResponse({ profileData: result.profileData });
-        });
-        return true; 
+function main() {
+    if (autofill_manager.popup !== null) {
+        autofill_manager.popup.show_popup();
+    } else {
+        console.log("reload the page");
+    }
+}
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.message === "open edit page") {
+        chrome.tabs.create({url: chrome.runtime.getURL('index.html')});
     }
 });
