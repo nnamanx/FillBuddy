@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application Dashboard</title>
+    <title>FillBuddy - Unified Application</title>
 
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <link rel="stylesheet" href="./css/popup.css">
 
-    <!-- Style -->
+    <!-- Inline Styles -->
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        h1 {
+        h1, h3 {
             text-align: center;
         }
         table {
@@ -40,42 +44,153 @@
     </style>
 </head>
 <body>
-    <h1>Job Application Dashboard</h1>
-    <table id="applicationTable">
-        <thead>
-            <tr>
-                <th>Company</th>
-                <th>Job Title</th>
-                <th>Date Applied</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody id="dynamicRows">
-        </tbody>
-    </table>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">FillBuddy</a>
+    </nav>
+
+    <!-- Profile Editor Section -->
+    <div class="container my-5">
+        <h3>Update Your Profile</h3>
+        <hr>
+        <form id="editprofileform">
+            <!-- Personal Info -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputfirstname">First Name</label>
+                    <input type="text" class="form-control" id="inputfirstname" placeholder="Enter First Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputlastname">Last Name</label>
+                    <input type="text" class="form-control" id="inputlastname" placeholder="Enter Last Name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputemail">Email</label>
+                    <input type="email" class="form-control" id="inputemail" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputphone">Phone Number</label>
+                    <input type="text" class="form-control" id="inputphone" placeholder="Enter Phone" required>
+                </div>
+            </div>
+
+            <!-- Social Profiles -->
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputlinkedin">LinkedIn</label>
+                    <input type="text" class="form-control" id="inputlinkedin" placeholder="LinkedIn URL">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputgithub">GitHub</label>
+                    <input type="text" class="form-control" id="inputgithub" placeholder="GitHub URL">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputwebsite">Website</label>
+                    <input type="text" class="form-control" id="inputwebsite" placeholder="Website URL">
+                </div>
+            </div>
+
+            <!-- File Uploads -->
+            <h5>File Attachments</h5>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputresume">Upload Resume</label>
+                    <input type="file" accept=".pdf" class="form-control-file" id="inputresume">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputcoverletter">Upload Cover Letter</label>
+                    <input type="file" class="form-control-file" id="inputcoverletter">
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Save Profile</button>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Job Application Dashboard Section -->
+    <div class="container my-5">
+        <h3>Job Application Dashboard</h3>
+        <hr>
+        <table id="applicationTable">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Date Applied</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="dynamicRows">
+                <!-- Dynamic Rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script>
+        // Load Profile Data
+        function loadProfileData() {
+            chrome.storage.sync.get("profile", (data) => {
+                const profile = data.profile || {};
+                document.getElementById("inputfirstname").value = profile.firstname || "";
+                document.getElementById("inputlastname").value = profile.lastname || "";
+                document.getElementById("inputemail").value = profile.email || "";
+                document.getElementById("inputphone").value = profile.phone || "";
+                document.getElementById("inputlinkedin").value = profile.linkedin || "";
+                document.getElementById("inputgithub").value = profile.github || "";
+                document.getElementById("inputwebsite").value = profile.website || "";
+            });
+        }
+
+        // Save Profile Data
+        document.getElementById("editprofileform").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const profile = {
+                firstname: document.getElementById("inputfirstname").value,
+                lastname: document.getElementById("inputlastname").value,
+                email: document.getElementById("inputemail").value,
+                phone: document.getElementById("inputphone").value,
+                linkedin: document.getElementById("inputlinkedin").value,
+                github: document.getElementById("inputgithub").value,
+                website: document.getElementById("inputwebsite").value
+            };
+            chrome.storage.sync.set({ profile }, () => alert("Profile saved successfully!"));
+        });
+
+        // Load Applications
         function loadApplications() {
             chrome.storage.sync.get("applications", (data) => {
                 const applications = data.applications || [];
                 const tableBody = document.querySelector("#dynamicRows");
-                tableBody.innerHTML = ""; 
+                tableBody.innerHTML = "";
 
                 applications.forEach((app) => {
                     const row = document.createElement("tr");
-
                     row.innerHTML = `
                         <td>${app.company}</td>
                         <td>${app.jobTitle}</td>
                         <td>${app.dateApplied}</td>
                         <td><span class="status ${app.status}">${app.status}</span></td>
                     `;
-
                     tableBody.appendChild(row);
                 });
             });
         }
 
-        document.addEventListener("DOMContentLoaded", loadApplications);
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProfileData();
+            loadApplications();
+        });
     </script>
 </body>
 </html>
