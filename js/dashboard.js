@@ -62,5 +62,29 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDashboard();
   });
   
+// Load applications from storage and populate the dashboard
+function loadApplications() {
+  chrome.storage.sync.get("applications", (data) => {
+      const applications = data.applications || [];
+      const tableBody = document.querySelector("#applicationTable tbody");
+      tableBody.innerHTML = ""; // Clear existing rows
+
+      applications.forEach((app) => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+              <td>${app.company}</td>
+              <td>${app.jobTitle}</td>
+              <td>${app.dateApplied}</td>
+              <td><span class="status ${app.status}">${app.status}</span></td>
+          `;
+
+          tableBody.appendChild(row);
+      });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadApplications);
+
 
   

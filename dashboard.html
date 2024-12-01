@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Dashboard</title>
+
+    <!-- Style -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .status {
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .status.applied { background-color: #d1f7d6; }
+        .status.interview { background-color: #f7f4d6; }
+        .status.rejected { background-color: #f7d6d6; }
+    </style>
+</head>
+<body>
+    <h1>Job Application Dashboard</h1>
+    <table id="applicationTable">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Job Title</th>
+                <th>Date Applied</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="dynamicRows">
+        </tbody>
+    </table>
+    <script>
+        function loadApplications() {
+            chrome.storage.sync.get("applications", (data) => {
+                const applications = data.applications || [];
+                const tableBody = document.querySelector("#dynamicRows");
+                tableBody.innerHTML = ""; 
+
+                applications.forEach((app) => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${app.company}</td>
+                        <td>${app.jobTitle}</td>
+                        <td>${app.dateApplied}</td>
+                        <td><span class="status ${app.status}">${app.status}</span></td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadApplications);
+    </script>
+</body>
+</html>

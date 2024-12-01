@@ -3,48 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FillBuddy Popup</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>FillBuddy - Cover Letter Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea, button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #coverLetterOutput {
+            height: 150px;
+        }
+    </style>
 </head>
 <body>
-    <div class="fillbuddy_toast-header fillbuddy_d-flex fillbuddy_justify-content-between">
-        <strong>FillBuddy Assistant</strong>
-        <button
-            type="button"
-            class="fillbuddy_close"
-            style="margin-left: 0.5rem !important; margin-bottom: 0.25rem !important"
-            data-dismiss="toast"
-            aria-label="Close"
-        >
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <h1>FillBuddy - Cover Letter Generator</h1>
+    <div>
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" id="jobTitle" placeholder="Enter Job Title">
     </div>
-    <div class="fillbuddy_toast-body">
-        <p class="fillbuddy_toast-text" style="margin: 2px">
-            Would you like FillBuddy to help you quickly populate your resume?
-        </p>
-        <div
-            class="fillbuddy_d-flex fillbuddy_justify-content-between"
-            style="margin-top: 0.5rem"
-        >
-            <button
-                type="button"
-                class="fillbuddy_btn"
-                id="fillbuddy_fill_btn"
-                style="padding-left: 3em; padding-right: 3em"
-            >
-                Fill Now
-            </button>
-            <button
-                type="button"
-                class="fillbuddy_btn"
-                id="fillbuddy_edit_btn"
-                style="padding-left: 3em; padding-right: 3em"
-            >
-                Update Profile
-            </button>
-        </div>
+    <div>
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" placeholder="Enter Company Name">
     </div>
+    <div>
+        <label for="userProfile">User Profile:</label>
+        <textarea id="userProfile" placeholder="Enter your background details"></textarea>
+    </div>
+
+
+  
+    <button id="generateButton">Generate Cover Letter</button>
+    <h2>Generated Cover Letter:</h2>
+    <textarea id="coverLetterOutput" readonly placeholder="Your cover letter will appear here..."></textarea>
+    <div>
+      <button id="saveFormButton">Save Form for Later</button>
+    </div>
+    
     <script src="js/popup.js"></script>
 </body>
 </html>

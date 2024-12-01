@@ -1,3 +1,30 @@
+document.getElementById("generateButton").addEventListener("click", () => {
+    const jobTitle = document.getElementById("jobTitle").value.trim();
+    const companyName = document.getElementById("companyName").value.trim();
+    const userProfile = document.getElementById("userProfile").value.trim();
+
+    if (!jobTitle || !companyName || !userProfile) {
+        alert("Please fill in all fields before generating a cover letter.");
+        return;
+    }
+
+    chrome.runtime.sendMessage(
+        {
+            action: "generateCoverLetter",
+            data: { jobTitle, companyName, userProfile }
+        },
+        (response) => {
+            if (response && response.success) {
+                document.getElementById("coverLetterOutput").value = response.coverLetter;
+            } else {
+                const errorMessage = response?.error || "An unknown error occurred.";
+                alert("Failed to generate cover letter: " + errorMessage);
+            }
+        }
+    );
+});
+
+
 class Popup {
     constructor(manager=null) {
         this.auto_fill_btn = null;
@@ -51,3 +78,44 @@ class Popup {
         chrome.runtime.sendMessage({message: "open edit page"});
     }
 }
+
+function saveApplication(company, jobTitle, status = "applied") {
+    const dateApplied = new Date().toLocaleDateString();
+
+    chrome.storage.sync.get("applications", (data) => {
+        const applications = data.applications || [];
+        applications.push({ company, jobTitle, dateApplied, status });
+
+        chrome.storage.sync.set({ applications }, () => {
+            console.log("Application saved!");
+        });
+    });
+}
+
+// Example
+saveApplication("Google", "Software Developer");
+
+function saveFormData() {
+    const jobTitle = document.getElementById("jobTitle").value.trim();
+    const companyName = document.getElementById("companyName").value.trim();
+    const userProfile = document.getElementById("userProfile").value.trim();
+
+    if (jobTitle || companyName || userProfile) {
+        chrome.storage.sync.set({ formData: { jobTitle, companyName, userProfile } }, () => {
+            alert("Form data saved for future use!");
+        });
+    } else {
+        alert("No data to save!");
+    }
+}
+
+document.getElementById("saveFormButton").addEventListener("click", saveFormData);
+
+document.addEventListener("DOMContentLoaded", () => {
+    chrome.storage.sync.get("formData", (data) => {
+        const formData = data.formData || {};
+        document.getElementById("jobTitle").value = formData.jobTitle || "";
+        document.getElementById("companyName").value = formData.companyName || "";
+        document.getElementById("userProfile").value = formData.userProfile || "";
+    });
+});

@@ -3,7 +3,7 @@
   "description": "A Chrome extension that acts as an intelligent auto form filler for job applications and other forms",
   "version": "0.0.1",
   "manifest_version": 3,
-  "permissions": ["tabs", "activeTab", "scripting", "storage"],
+  "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "action": {
       "default_title": "Click to show an alert"
   },
