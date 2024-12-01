@@ -1,44 +1,43 @@
 {
-    "manifest_version": 3,
-    "name": "FillBuddy",
-    "version": "1.0",
-    "description": "A Chrome extension to automate form filling and manage job applications.",
-    "permissions": [
-      "storage",
-      "activeTab"
-    ],
-    "action": {
-      "default_popup": "pop-up.html",
-      "default_icon": {
-        "16": "assets/icon16.png",
-        "48": "assets/icon48.png",
-        "128": "assets/icon128.png"
-      }
-    },
-    "background": {
-      "service_worker": "js/background.js"
-    },
-    "web_accessible_resources": [
-      {
-        "resources": [
-          "css/main.css",
-          "css/cover-letter.css",
-          "assets/icon16.png",
-          "assets/icon48.png",
-          "assets/icon128.png",
-          "main.html",
-          "cover-letter.html"
-        ],
-        "matches": ["<all_urls>"]
-      }
-    ],
-    "icons": {
+  "manifest_version": 3,
+  "name": "FillBuddy",
+  "version": "1.0",
+  "description": "A Chrome extension to automate form filling and manage job applications.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "pop-up.html",
+    "default_icon": {
       "16": "assets/icon16.png",
       "48": "assets/icon48.png",
       "128": "assets/icon128.png"
-    },
-    "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'"
     }
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "css/main.css",
+        "css/cover-letter.css",
+        "assets/icon16.png",
+        "assets/icon48.png",
+        "assets/icon128.png",
+        "main.html",
+        "cover-letter.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
-  
+}

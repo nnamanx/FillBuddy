@@ -1,5 +1,4 @@
 
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('FillBuddy content script loaded.');
 
