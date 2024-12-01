@@ -1,43 +1,41 @@
 {
+  "name": "Autofill",
+  "description": "Autofill is a open source extension that allows you to fill in job forms with one click.",
+  "version": "0.0.1",
   "manifest_version": 3,
-  "name": "FillBuddy",
-  "version": "1.0",
-  "description": "A Chrome extension to automate form filling and manage job applications.",
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
+  "permissions": ["tabs", "activeTab", "scripting", "storage"],
   "action": {
-    "default_popup": "pop-up.html",
-    "default_icon": {
-      "16": "assets/icon16.png",
-      "48": "assets/icon48.png",
-      "128": "assets/icon128.png"
-    }
+      "default_title": "Click to show an alert"
+  },
+  "icons":{
+      "16": "img/logo.png",
+      "32": "img/logo.png",
+      "48": "img/logo.png",
+      "128": "img/logo.png"
   },
   "background": {
-    "service_worker": "js/background.js"
+      "service_worker": "js/background.bundle.js"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "css/main.css",
-        "css/cover-letter.css",
-        "assets/icon16.png",
-        "assets/icon48.png",
-        "assets/icon128.png",
-        "main.html",
-        "cover-letter.html"
-      ],
-      "matches": ["<all_urls>"]
-    }
-  ],
-  "icons": {
-    "16": "assets/icon16.png",
-    "48": "assets/icon48.png",
-    "128": "assets/icon128.png"
+  "content_scripts": [ {
+      "matches": [ "*://*/*" ],
+      "js": ["js/autofill.bundle.js", "js/companydata.bundle.js", "js/userdata.bundle.js", "js/popup.bundle.js", 
+      "js/jquery.min.js", "js/popper.min.js", "js/bootstrap.min.js"],
+      "css": ["css/popup.css"],
+      "run_at": "document_start"
   },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
+  {
+      "matches": [ "*://*/*" ],
+      "js": ["js/manager.bundle.js"],
+      "run_at": "document_end"
+  }],
+  "web_accessible_resources": [ {
+      "resources": [ "data/*", "index.html", "popup.html", "js/*", "css/*", "images/*" ],
+      "matches": [ "*://*/*" ]
+  } ],
+  "file_system_provider_capabilities": {
+      "configurable": true,
+      "watchable": false,
+      "multiple_mounts": true,
+      "source": "data"
   }
 }
