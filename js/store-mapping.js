@@ -97,3 +97,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderMappings();
 });
+
+// Function to save form data
+function saveForm(formData) {
+    const savedForms = JSON.parse(localStorage.getItem('savedForms')) || [];
+    savedForms.push(formData); // Add new form data to history
+    localStorage.setItem('savedForms', JSON.stringify(savedForms));
+    alert('Form saved successfully!');
+}
+
+// Example usage: Call this function after form submission
+document.getElementById('saveMappingButton').addEventListener('click', () => {
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        portfolio: document.getElementById('portfolio').value,
+    };
+    saveForm(formData);
+});
