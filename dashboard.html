@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/pupup.css">
 
-    <!-- Custom Font -->
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
@@ -18,9 +18,33 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">FillBuddy</a>
+            <a class="navbar-brand" href="popup.html">FillBuddy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./popup.html">Cover Letter Generator</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+
+    <!-- Profile Manager -->
+<div id="profileManager" class="mb-4">
+    <h5>Profile Manager</h5>
+    <div class="d-flex align-items-center">
+        <select id="profileSelector" class="form-control mr-2">
+            <option value="" disabled selected>Select Profile</option>
+        </select>
+        <button type="button" class="btn btn-primary btn-sm mr-2" id="createProfile">Create New</button>
+        <button type="button" class="btn btn-danger btn-sm" id="deleteProfile">Delete Selected</button>
+    </div>
+</div>
+
 
     <!-- Profile Editor Section -->
     <div class="container my-5">
@@ -80,26 +104,212 @@
 
     <!-- Job Application Dashboard Section -->
     <div class="container my-5">
-        <h3 class="text-center">Job Application Dashboard</h3>
-        <table class="table table-striped shadow bg-white rounded">
-            <thead class="bg-primary text-white">
-                <tr>
-                    <th>Company</th>
-                    <th>Job Title</th>
-                    <th>Date Applied</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="dynamicRows">
-                <!-- Dynamic Rows -->
-            </tbody>
-        </table>
+        <h3 class="text-center">Update Your Profile</h3>
+        <form id="editprofileform" class="shadow p-4 bg-white rounded">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputfirstname">First Name</label>
+                    <input type="text" class="form-control" id="inputfirstname" placeholder="Enter First Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputlastname">Last Name</label>
+                    <input type="text" class="form-control" id="inputlastname" placeholder="Enter Last Name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputemail">Email</label>
+                    <input type="email" class="form-control" id="inputemail" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputphone">Phone Number</label>
+                    <input type="text" class="form-control" id="inputphone" placeholder="Enter Phone" required>
+                </div>
+            </div>
+
+            <!-- Customizable Fields -->
+            <div id="customFields" class="my-4">
+                <h5>Customizable Fields</h5>
+                <button type="button" class="btn btn-outline-primary btn-sm mb-3" id="addCustomField">
+                    Add Custom Field
+                </button>
+                <div id="customFieldContainer"></div>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success">Save Profile</button>
+            </div>
+        </form>
     </div>
+
+    
+
 
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popup.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const customFieldContainer = document.getElementById("customFieldContainer");
+            const addCustomFieldButton = document.getElementById("addCustomField");
+
+            // Load stored data
+            const loadStoredData = () => {
+                const storedData = JSON.parse(localStorage.getItem("customFields")) || [];
+                customFieldContainer.innerHTML = "";
+                storedData.forEach((field, index) => {
+                    createCustomField(field, index);
+                });
+            };
+
+            // Save data to local storage
+            const saveToLocalStorage = () => {
+                const fields = [];
+                customFieldContainer.querySelectorAll(".custom-field").forEach((field) => {
+                    const label = field.querySelector(".field-label").value;
+                    const value = field.querySelector(".field-value").value;
+                    fields.push({ label, value });
+                });
+                localStorage.setItem("customFields", JSON.stringify(fields));
+            };
+
+            // Create a new custom field
+            const createCustomField = (data = { label: "", value: "" }, index = null) => {
+                const fieldDiv = document.createElement("div");
+                fieldDiv.classList.add("custom-field", "mb-3", "d-flex", "align-items-center");
+                fieldDiv.innerHTML = `
+                    <input type="text" class="form-control field-label mr-2" placeholder="Field Label" value="${data.label}" />
+                    <input type="text" class="form-control field-value mr-2" placeholder="Field Value" value="${data.value}" />
+                    <button type="button" class="btn btn-danger btn-sm remove-field" data-index="${index}">Remove</button>
+                `;
+                customFieldContainer.appendChild(fieldDiv);
+
+                // Add remove functionality
+                fieldDiv.querySelector(".remove-field").addEventListener("click", () => {
+                    fieldDiv.remove();
+                    saveToLocalStorage();
+                });
+
+                // Save changes on input
+                fieldDiv.querySelectorAll("input").forEach((input) =>
+                    input.addEventListener("input", saveToLocalStorage)
+                );
+            };
+
+            // Add new custom field
+            addCustomFieldButton.addEventListener("click", () => {
+                createCustomField();
+                saveToLocalStorage();
+            });
+
+            // Load existing fields on page load
+            loadStoredData();
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const profileSelector = document.getElementById("profileSelector");
+    const createProfileButton = document.getElementById("createProfile");
+    const deleteProfileButton = document.getElementById("deleteProfile");
+    const formFields = ["inputfirstname", "inputlastname", "inputemail", "inputphone", "inputlinkedin", "inputgithub", "inputwebsite"];
+
+    // Load profiles from localStorage
+    const loadProfiles = () => {
+        const profiles = JSON.parse(localStorage.getItem("profiles")) || {};
+        profileSelector.innerHTML = '<option value="" disabled selected>Select Profile</option>';
+        Object.keys(profiles).forEach((profileName) => {
+            const option = document.createElement("option");
+            option.value = profileName;
+            option.textContent = profileName;
+            profileSelector.appendChild(option);
+        });
+    };
+
+    // Save profiles to localStorage
+    const saveProfiles = (profiles) => {
+        localStorage.setItem("profiles", JSON.stringify(profiles));
+    };
+
+    // Load profile data into the form
+    const loadProfileData = (profileName) => {
+        const profiles = JSON.parse(localStorage.getItem("profiles")) || {};
+        const profileData = profiles[profileName];
+        if (profileData) {
+            formFields.forEach((fieldId) => {
+                document.getElementById(fieldId).value = profileData[fieldId] || "";
+            });
+        }
+    };
+
+    // Save the current form data to the selected profile
+    const saveCurrentProfile = (profileName) => {
+        const profiles = JSON.parse(localStorage.getItem("profiles")) || {};
+        const profileData = {};
+        formFields.forEach((fieldId) => {
+            profileData[fieldId] = document.getElementById(fieldId).value;
+        });
+        profiles[profileName] = profileData;
+        saveProfiles(profiles);
+        alert(`Profile "${profileName}" saved successfully!`);
+    };
+
+    // Handle profile creation
+    createProfileButton.addEventListener("click", () => {
+        const profileName = prompt("Enter a name for the new profile:");
+        if (profileName) {
+            const profiles = JSON.parse(localStorage.getItem("profiles")) || {};
+            if (profiles[profileName]) {
+                alert(`A profile with the name "${profileName}" already exists.`);
+            } else {
+                profiles[profileName] = {};
+                saveProfiles(profiles);
+                loadProfiles();
+                profileSelector.value = profileName;
+                alert(`Profile "${profileName}" created successfully!`);
+            }
+        }
+    });
+
+    // Handle profile deletion
+    deleteProfileButton.addEventListener("click", () => {
+        const selectedProfile = profileSelector.value;
+        if (selectedProfile) {
+            const profiles = JSON.parse(localStorage.getItem("profiles")) || {};
+            delete profiles[selectedProfile];
+            saveProfiles(profiles);
+            loadProfiles();
+            alert(`Profile "${selectedProfile}" deleted successfully!`);
+        } else {
+            alert("Please select a profile to delete.");
+        }
+    });
+
+    // Handle profile selection
+    profileSelector.addEventListener("change", () => {
+        const selectedProfile = profileSelector.value;
+        if (selectedProfile) {
+            loadProfileData(selectedProfile);
+        }
+    });
+
+    // Save the current profile on form submission
+    document.getElementById("editprofileform").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const selectedProfile = profileSelector.value;
+        if (selectedProfile) {
+            saveCurrentProfile(selectedProfile);
+        } else {
+            alert("Please select a profile to save.");
+        }
+    });
+
+    // Load profiles on page load
+    loadProfiles();
+});
+
+    </script>
 </body>
 
 </html>
