@@ -1,113 +1,199 @@
-.autofill_toast {
-    font-size: 13px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    max-width: 350px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, .85);
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .1);
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .1);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    border-radius: .25rem
-}
-
-.autofill_toast:not(:last-child) {
-    margin-bottom: .75rem
-}
-
-.autofill_toast.showing {
-    opacity: 1
-}
-
-.autofill_toast.show {
-    display: block;
-    opacity: 1
-}
-
-.autofill_toast.hide {
-    display: none
-}
-
-.autofill_toast-text {
-    font-size: 13px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #000;
-}
-
-.autofill_toast-header {
-    font-size: 13px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0rem .75rem;
-    color: #6c757d;
-    background-color: rgba(255, 255, 255, .85);
-    background-clip: padding-box;
-    border-bottom: 1px solid rgba(0, 0, 0, .05)
-}
-
-.autofill_toast-body {
-    padding: .75rem
-}
-
-.autofill_close {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .5
-}
-
-.autofill_close:hover {
-    color: #000;
-    text-decoration: none
-}
-
-.autofill_close:not(:disabled):not(.disabled):focus,
-.autofill_close:not(:disabled):not(.disabled):hover {
-    opacity: .75
-}
-
-button.autofill_close {
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
     padding: 0;
-    background-color: transparent;
-    border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none
-}
-
-.autofill_d-none {
-    display: none !important
-}
-
-.autofill_justify-content-between {
-    -ms-flex-pack: justify !important;
-    justify-content: space-between !important
-}
-
-.autofill_d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important
-}
-
-.autofill_btn {
-    border: 2px solid #0c343d;
-    background-color: #6d858a;
-    color: #fff;
-    padding: 5px 5px;
-    font-size: 13px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    cursor: pointer;
-    border-color: #e7e7e7;
-}
+  }
   
-.autofill_btn:hover {
-    background: #244850;
-}
+  .container {
+    padding: 2rem;
+  }
+  
+  h3, h5 {
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .navbar a.navbar-brand {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar a.navbar-brand:hover {
+    color: #f9f9f9;
+  }
+  
+  /* Form Elements */
+  form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+  
+  .form-control-file {
+    font-size: 0.9rem;
+  }
+  
+  button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button.btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  button.btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  button.btn-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  button.btn-success:hover {
+    background-color: #218838;
+  }
+  
+  /* Toast/Notification Styles */
+  .fillbuddy_toast-header {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .fillbuddy_toast-body {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .fillbuddy_toast-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .fillbuddy_d-flex {
+    display: flex;
+  }
+  
+  .fillbuddy_justify-content-between {
+    justify-content: space-between;
+  }
+  
+  .fillbuddy_close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .fillbuddy_close:hover {
+    color: #f9f9f9;
+  }
+  
+  .fillbuddy_btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .fillbuddy_btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Employment and Education Sections */
+  #inputemployment, #inputeducation {
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  button#addemployment, button#addeducation {
+    background-color: #007bff;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  button#addemployment:hover, button#addeducation:hover {
+    background-color: #0056b3;
+  }
+  
+  /* File Upload Section */
+  .form-control-file {
+    padding: 0.3rem;
+  }
+  
+  label[for="inputresume"], label[for="inputcoverletter"] {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Equal Employment Data */
+  select.form-control-sm {
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+  
+  option {
+    font-size: 0.9rem;
+  }
+  
+  /* Save and Cancel Buttons */
+  button#save {
+    background-color: #28a745;
+  }
+  
+  button#save:hover {
+    background-color: #218838;
+  }
+  
+  button#cancel {
+    background-color: #dc3545;
+  }
+  
+  button#cancel:hover {
+    background-color: #c82333;
+  }
+  

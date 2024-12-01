@@ -1,6 +1,6 @@
 {
-  "name": "Autofill",
-  "description": "Autofill is a open source extension that allows you to fill in job forms with one click.",
+  "name": "FillBuddy",
+  "description": "A Chrome extension that acts as an intelligent auto form filler for job applications and other forms",
   "version": "0.0.1",
   "manifest_version": 3,
   "permissions": ["tabs", "activeTab", "scripting", "storage"],
@@ -14,18 +14,18 @@
       "128": "img/logo.png"
   },
   "background": {
-      "service_worker": "js/background.bundle.js"
+      "service_worker": "js/background.js"
   },
   "content_scripts": [ {
       "matches": [ "*://*/*" ],
-      "js": ["js/autofill.bundle.js", "js/companydata.bundle.js", "js/userdata.bundle.js", "js/popup.bundle.js", 
+      "js": ["js/autofill.js", "js/company.js", "js/userdata.js", "js/popup.js", 
       "js/jquery.min.js", "js/popper.min.js", "js/bootstrap.min.js"],
       "css": ["css/popup.css"],
       "run_at": "document_start"
   },
   {
       "matches": [ "*://*/*" ],
-      "js": ["js/manager.bundle.js"],
+      "js": ["js/profile-managetment.js"],
       "run_at": "document_end"
   }],
   "web_accessible_resources": [ {
