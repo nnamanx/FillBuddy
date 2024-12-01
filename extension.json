@@ -1,41 +1,82 @@
 {
-  "name": "FillBuddy",
-  "description": "A Chrome extension that acts as an intelligent auto form filler for job applications and other forms",
-  "version": "0.0.1",
-  "manifest_version": 3,
-  "permissions": ["tabs", "activeTab", "storage", "scripting"],
-  "action": {
-      "default_title": "Click to show an alert"
-  },
-  "icons":{
-      "16": "img/logo.png",
-      "32": "img/logo.png",
-      "48": "img/logo.png",
-      "128": "img/logo.png"
-  },
-  "background": {
-      "service_worker": "js/background.js"
-  },
-  "content_scripts": [ {
-      "matches": [ "*://*/*" ],
-      "js": ["js/autofill.js", "js/company.js", "js/userdata.js", "js/popup.js", 
-      "js/jquery.min.js", "js/popper.min.js", "js/bootstrap.min.js"],
-      "css": ["css/popup.css"],
-      "run_at": "document_start"
-  },
-  {
-      "matches": [ "*://*/*" ],
-      "js": ["js/profile-managetment.js"],
-      "run_at": "document_end"
-  }],
-  "web_accessible_resources": [ {
-      "resources": [ "data/*", "index.html", "popup.html", "js/*", "css/*", "images/*" ],
-      "matches": [ "*://*/*" ]
-  } ],
-  "file_system_provider_capabilities": {
-      "configurable": true,
-      "watchable": false,
-      "multiple_mounts": true,
-      "source": "data"
-  }
+    "name": "FillBuddy",
+    "description": "A Chrome extension that acts as an intelligent auto form filler for job applications and other forms",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+
+    "icons": {
+        "16": "img/logo.png",
+        "32": "img/logo.png",
+        "48": "img/logo.png",
+        "128": "img/logo.png"
+    },
+
+    "background": {
+        "service_worker": "js/background.js"
+    },
+
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "js/autofill.js",
+                "js/company.js",
+                "js/userdata.js",
+                "js/popup.js",
+                "js/jquery.min.js",
+                "js/popper.min.js",
+                "js/bootstrap.min.js"
+            ],
+            "css": [
+                "css/popup.css"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "js/profile-managetment.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "index.html",
+                "popup.html",
+                "js/*",
+                "css/*",
+                "images/*"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "file_system_provider_capabilities": {
+        "configurable": true,
+        "watchable": false,
+        "multiple_mounts": true,
+        "source": "data"
+    }
 }
