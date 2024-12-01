@@ -1,4 +1,4 @@
-// Gozal
+// Gozal done
 
 document.addEventListener('DOMContentLoaded', () => {
     const mappingContainer = document.getElementById('mappingContainer');
