@@ -1,20 +1,80 @@
-/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    padding: 2rem;
-  }
-  
-  h3, h5 {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.navbar {
+    padding: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: 700;
     color: #007bff;
-    margin-bottom: 1rem;
-  }
+}
+
+.container {
+    max-width: 800px;
+}
+
+label {
+    font-weight: 500;
+    color: #495057;
+}
+
+input.form-control, .form-control-file {
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+button {
+    border-radius: 25px;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+}
+
+button.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+button.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+button.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
   
   /* Navbar */
   .navbar {
